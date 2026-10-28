@@ -1,0 +1,4 @@
+.workbuddy/
+.tmp_*
+*.bak_*
+.token.txt

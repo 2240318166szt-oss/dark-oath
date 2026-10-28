@@ -1,0 +1,77 @@
+{
+  "version": "6.0-chibi-boss-compare",
+  "palette": {
+    "black": "#1B1B1B",
+    "iron": "#303030",
+    "darkred": "#5A1F1F",
+    "red": "#A11F1F",
+    "bone": "#D6D0C8",
+    "gold": "#A8863A",
+    "purple": "#6B3FA0",
+    "blue": "#3E5870",
+    "green": "#467A46",
+    "ash": "#707070"
+  },
+  "characters": {
+    "knight": [
+      "idle",
+      "walk",
+      "attack",
+      "hit",
+      "death",
+      "skill1",
+      "skill2",
+      "skill3"
+    ],
+    "hunter": [
+      "idle",
+      "walk",
+      "attack",
+      "hit",
+      "death",
+      "skill1",
+      "skill2",
+      "skill3"
+    ],
+    "mage": [
+      "idle",
+      "walk",
+      "attack",
+      "hit",
+      "death",
+      "skill1",
+      "skill2",
+      "skill3"
+    ]
+  },
+  "bosses": [
+    "wolf_king",
+    "bat_lord",
+    "elder_witch",
+    "cyclops_chief",
+    "dark_lord"
+  ],
+  "monsters": [
+    "ratman",
+    "werewolf",
+    "witch",
+    "cyclops",
+    "cultist"
+  ],
+  "tilesets": [
+    "dungeon",
+    "forest",
+    "swamp",
+    "ruins",
+    "temple"
+  ],
+  "note": "Q版俯视动作肉鸽视觉；装备对比以当前同部位实际属性差值显示；Boss拥有两套可辨识阶段外观。",
+  "boss_visual_phases": 2,
+  "features": [
+    "中文装备属性",
+    "人物属性面板",
+    "装备同部位差值对比",
+    "5 Boss Q版重绘",
+    "Boss二阶段轮廓变化"
+  ]
+}

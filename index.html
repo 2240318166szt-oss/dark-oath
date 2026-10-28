@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN" data-page-node-id="mIAZnVwIHKL8xCw52NkPbd">
+<head data-page-node-id="nXV1nxoNPKErsh25g4J8iS">
+  <meta charset="utf-8" data-page-node-id="NQEyBmfwmOyMsffcByXBB7" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" data-page-node-id="Opk6mtKU2tK61uPPILcink" />
+  <title>黑誓：灵魂裂境</title>
+  <link rel="icon" href="data:," data-page-node-id="Zx43UAUtKAulTNEypZ4QEo" />
+  <link rel="stylesheet" href="style.css" data-page-node-id="73F3mAWmDjbkSLctZFoSOG" />
+</head>
+<body data-page-node-id="x6rV4r28tQSlymd705SWah">
+  <div id="app" data-page-node-id="CxKhxE5kF4WikdwuRzh7cm">
+    <canvas id="game" width="1280" height="720" data-page-node-id="yuKLIAXITcMCdiGY75DlEW"></canvas>
+
+    <section id="mainMenu" class="panel menu-panel" data-page-node-id="PKKga9r8NBpe32PG0cAoAh">
+      <div class="eyebrow" data-page-node-id="GSTFlve5ilbFVQn4QtqUo1">暗黑像素动作肉鸽</div>
+      <h1 data-page-node-id="BxoMVjdDfjavBKZnt5ai4W">黑誓：灵魂裂境</h1>
+      <p class="subtitle" data-page-node-id="AHe6E2CrdQom0r5ooOoJV5">五章深渊 · 三职业 · 永久成长 · 浏览器即开即玩</p>
+      <div class="menu-badges" data-page-node-id="L0TOqAc4WPrQPM2pjq9YLp"><span class="chip hot" data-page-node-id="p77rJR7NokAnStD9WoujQR">v12 关卡制</span><span class="chip" data-page-node-id="ICMPYCNBLzLVF2ZPjrw4j5">海克斯构筑</span><span class="chip" data-page-node-id="p77rJR7NokAnStD9WoujQ2">关卡通道</span><span class="chip" data-page-node-id="rUFXwJSS3GuocmtlAkGza0">宝箱怪</span><span class="chip" data-page-node-id="PoUYfo2d6jP8B5sZwfszZ8">血月波次</span><span class="chip" data-page-node-id="3ldu5altzbBaGVcOMuC0dv">连击里程碑</span></div>
+      <div class="menu-grid" data-page-node-id="q64e3T5N9b9wXKphxPPGJg">
+        <button id="startBtn" class="primary span2" data-page-node-id="epZiWGciAIOVmG8EGaKX1x">开始游戏</button>
+        <button id="campBtn" data-page-node-id="iZ7WyyQQI3Rl4XWKyVff4E">营地</button>
+        <button id="achBtn" data-page-node-id="iNGrTA6dWKURV4RjKv5h5T">成就</button>
+        <button id="dailyBtn" data-page-node-id="VlmYTuBeu7WtfXbuZ8VcqZ">每日挑战</button>
+        <button id="controlsBtn" data-page-node-id="ku3I9XTGlsZO7C4eqMNmtS">操作说明</button>
+        <button id="settingsBtn" data-page-node-id="0GTdJvIHriavwgETGRW4x7">设置</button>
+        <button id="fullscreenBtn" data-page-node-id="ueWH6GiulqqcK7AEScABjg">全屏</button>
+      </div>
+      <div class="difficulty-row" data-page-node-id="N2vcO6uJphYS9qBMLxCWcr">
+        <span data-page-node-id="fK8x7F76hBIXsfPfuTqRvi">难度</span>
+        <select id="difficultySelect" data-page-node-id="zATZLwbhWNOiL9VuxypK4d">
+          <option value="easy" data-page-node-id="0Ec0D7wYkG03ZajIahA0Ot">简单 ×0.7</option>
+          <option value="normal" selected data-page-node-id="mWj3vE1DqPHk6LBZs0Y3xl">普通 ×1.0</option>
+          <option value="hard" data-page-node-id="bf0d1HohpLXzXCERNT6CiD">困难 ×1.3</option>
+          <option value="nightmare" data-page-node-id="lNAF5RbhU5OFzxl3NrPdnW">噩梦 ×1.8</option>
+          <option value="inferno" data-page-node-id="bgiAZeftV7icnZipW0BIag">炼狱 ×2.5</option>
+        </select>
+      </div>
+      <div id="saveSummary" class="save-summary" data-page-node-id="v86RN71qLlLpHKnmsV3Rn7"></div>
+      <div id="dailyLine" class="daily-line" data-page-node-id="1uEyQzsUXbl0HYGRcTIVMk"></div>
+    </section>
+
+    <section id="classSelect" class="panel hidden wide-panel" data-page-node-id="s4pKzp6fG1GFMDd8jvlydg">
+      <div class="panel-title-row" data-page-node-id="3XIpaBtAY0ugxES9PwoFkO"><h2 data-page-node-id="YwlT7N5uoO5WSnd6fQ7Rqn">选择职业</h2><button class="ghost" data-close="classSelect" data-page-node-id="UjZN1CplolGBcjCA5EPfC7">返回</button></div>
+      <div id="classCards" class="class-cards" data-page-node-id="PNe7FPXGY8MAXLHFD2QwnO"></div>
+    </section>
+
+    <section id="campPanel" class="panel hidden wide-panel" data-page-node-id="zsCPfHlHzz3HBX53vXUTmJ">
+      <div class="panel-title-row" data-page-node-id="ph7WIWmiZ7nTO69pS67icu"><h2 data-page-node-id="fNEUv5DfEaPUDzOVi7RtvI">营地 · 永久成长</h2><button class="ghost" data-close="campPanel" data-page-node-id="w7HHoOroiWxyF2NK2bg5Gv">返回</button></div>
+      <div id="campCurrency" class="currency-line" data-page-node-id="FFKfelRE35CggdnuXfymNY"></div>
+      <div id="campUpgrades" class="upgrade-grid" data-page-node-id="7W9yWgpfmiDVnJS0CXIwVw"></div>
+      <div class="camp-note" data-page-node-id="IyFm5sLBa5ifijqNclAxQn">强化会保存到浏览器本地存档。技能强化在对应职业开局时生效。</div>
+    </section>
+
+    <section id="controlsPanel" class="panel hidden modal-panel" data-page-node-id="HQbHMFG4Ex577gv2m6vlbR">
+      <div class="panel-title-row" data-page-node-id="2Mi7Nd7VxN4SOURrxPjM4Y"><h2 data-page-node-id="jcT1dvjAH7YMV8YSVk1xBk">操作说明</h2><button class="ghost" data-close="controlsPanel" data-page-node-id="eRAqNjHuOzNIijeHf6qpGm">关闭</button></div>
+      <div class="controls-grid" data-page-node-id="nOVyYvEAk0tUYvHv6UnnBJ">
+        <span data-page-node-id="4oDWaRpbpYv8wtYyYM0Q4T">移动</span><b data-page-node-id="2Cs71On8EepTONRqsCf2wV">W / A / S / D</b>
+        <span data-page-node-id="RTn32j9CItCxEpTe4zzqsv">普通攻击</span><b data-page-node-id="V4I0MflEfzYl19vi352svl">鼠标左键</b>
+        <span data-page-node-id="SFuRTJ03Uvd9yqJtG8CDJ9">通用闪避</span><b data-page-node-id="NZeX7yitBIfDnACJjHdqSQ">Space</b>
+        <span data-page-node-id="2V1cvCeJOaRYvdEK8LpwBj">技能</span><b data-page-node-id="5r6PHSemyaBAl8WDWWccm3">1 / 2 / 3</b>
+        <span data-page-node-id="uD4AtH1d7mObbI4JTznKmT">拾取 / 交互</span><b data-page-node-id="l36rpIMc0bTWGpvKv5gDpn">E</b>
+        <span data-page-node-id="ryEBm5EKRenV09GJYusjg4">背包</span><b data-page-node-id="AMMihmFngTuTI4DY0Yomh7">Tab</b>
+        <span data-page-node-id="WX5aF4EivchGrQFLlBW85p">人物属性</span><b data-page-node-id="fHm3lbrr6exdb7t29newDh">C</b>
+        <span data-page-node-id="ZsmPUz7xzaYCGvG46F4r2e">暂停</span><b data-page-node-id="5bNKlwA4XiqxCkSKzWJlOd">Esc</b>
+        <span data-page-node-id="jogDiXgOX0e4oKhvdldM5a">局内商店</span><b data-page-node-id="DAdbxNmKIh9cUxx8tvxfc6">B</b>
+        <span data-page-node-id="XAORf1AqfycZCRVkhppyKW">药水</span><b data-page-node-id="Lnba4SX1CQmBRPce9JNCpF">Q</b>
+        <span data-page-node-id="P679y9QKzt3mSkH5Wt6FR0">调试面板</span><b data-page-node-id="Wqu6UWsIl8i5Kixv5IQ6RC">F2</b>
+        <span data-page-node-id="6823MchNvURygmuLB8cECe">性能信息</span><b data-page-node-id="gtIUPgrHmXgFkmkWmxVO9h">F3</b>
+        <span data-page-node-id="OBNwy5XO1qExWfzoG9nOB5">全屏切换</span><b data-page-node-id="HVYgsyEzROkGPZTNv8Z0oJ">主菜单按钮</b>
+      </div>
+    </section>
+
+    <section id="settingsPanel" class="panel hidden modal-panel" data-page-node-id="bJJ0SydNoy2Vu1J5HHhUFL">
+      <div class="panel-title-row" data-page-node-id="FNCYtmVAb7GTexFgGchBYx"><h2 data-page-node-id="0cI1wvxaiw74IPkGFnWBYk">设置</h2><button class="ghost" data-close="settingsPanel" data-page-node-id="IF8eiMwKVFez8FiZvhLjzC">关闭</button></div>
+      <div class="settings-list" data-page-node-id="AU537PKJmAVtDKxMGb1Wgd">
+        <label class="set-row" data-page-node-id="RIYYagQIbYASdMqV2zAODY"><span data-page-node-id="2k1KyyUeb97KYyzRr8jtjE">音效音量</span><input id="volumeInput" type="range" min="0" max="1" step="0.05" data-page-node-id="yWBK9nDJpFQuQ3KlK1yA3r" /></label>
+        <label class="set-row" data-page-node-id="0LKnA8m4deUXBdAPFzL0dq"><span data-page-node-id="SEZpHvfZdgsrIgvhBpfbDK">画质</span><select id="qualitySelect" data-page-node-id="RtrhbzEczjAvwDXNyCoquF"><option value="high" data-page-node-id="1MiPJemCP0wvalrKvrOTLS">高</option><option value="medium" data-page-node-id="uQOC4kMg1UdrbcqBGJ3Bg5">中</option><option value="low" data-page-node-id="XHjDrAzTTVnkoeAVdWXWdZ">低</option></select></label>
+        <label class="set-row" data-page-node-id="1D3L80KniBAzye1g4kECA3"><span data-page-node-id="8078FILKNf22mpxJWRuYGc">动态光照与氛围</span><span class="pix-switch" data-page-node-id="M0CnLd6AwFP1waNW55F17j"><input id="lightToggle" type="checkbox" checked data-page-node-id="FyBIcB0iDdhqD99m1oSZfj"><i data-page-node-id="KgVonapc2j8IsZdajorIRl"></i></span></label>
+        <label class="set-row" data-page-node-id="ey9y7MY017pS1eD30oYhBT"><span data-page-node-id="vUno9UUmSnLDf3z3Q7eGWH">屏幕震动</span><span class="pix-switch" data-page-node-id="FdRKOaOZnBLA1meiQYdJxo"><input id="shakeToggle" type="checkbox" checked data-page-node-id="Da1NehVsDaYmQaqm2s9C8D"><i data-page-node-id="OtOOciUoxLkSq4z8yAD9si"></i></span></label>
+        <label class="set-row" data-page-node-id="8dxpfBerW0FkReBtDHfPM7"><span data-page-node-id="oPEUbtFAfzoakv5DsQEMNX">伤害数字</span><span class="pix-switch" data-page-node-id="DUFNwU3cB43fFgZ1cMbPsO"><input id="dmgToggle" type="checkbox" checked data-page-node-id="P4MOQrHOY3zAhNS4CVUWkN"><i data-page-node-id="FB1BsxICaHFYfHz915qF1W"></i></span></label>
+        <label class="set-row" data-page-node-id="sflEal9Ltbm85XseR8PZwm"><span data-page-node-id="5NkvWcmKULX93ww5ccE9Pr">扫描线特效</span><span class="pix-switch" data-page-node-id="IiRga7ENyn8lVHqWXeGFpy"><input id="scanToggle" type="checkbox" checked data-page-node-id="ALi9skHmBMVFuoYuGkisa0"><i data-page-node-id="LqtQlSC51dYMfyCS1VFpaF"></i></span></label>
+        <label class="set-row" data-page-node-id="Ay736UUU4ZR4a0hPt7EoFB"><span data-page-node-id="hbGUQJEpQI4AmUSr0KCnnR">整数倍缩放（像素锐利）</span><span class="pix-switch" data-page-node-id="9T7VHjfPHUpPhx5OX211eK"><input id="scaleToggle" type="checkbox" checked data-page-node-id="QtbtovFKDgH6ldbNAQrtGI"><i data-page-node-id="BRUxCTbG7zTDCXdS0IZxOf"></i></span></label>
+      </div>
+      <p class="settings-note" data-page-node-id="K8vfFFFzGu8FwBbgIrnfyE">设置自动保存到本地存档；低配设备可关闭动态光照与扫描线提升流畅度。</p>
+      <div class="save-io" data-page-node-id="lrm5gfvK93A955F6pPzktl">
+        <button id="exportSaveBtn" data-page-node-id="lDlrvfWTFnvinYKwc7VGdP">导出存档</button>
+        <label class="file-btn" data-page-node-id="Lrjg58Qw8ktlNlLQFVroJ8">导入存档<input id="importSaveFile" type="file" accept="application/json,.json" hidden data-page-node-id="lcmZ5t8vCALUbohnGaSTuw"></label>
+      </div>
+      <p class="settings-note" data-page-node-id="s5qx38mtXQUHI6ifA1tjB6">导出会下载一个 .json 文件并复制内容到剪贴板；导入会覆盖当前存档。</p>
+    </section>
+
+    <section id="talentPanel" class="panel hidden talent-panel" data-page-node-id="Xww91uZdf7mqWq1ONs0u1W">
+      <h2 data-page-node-id="keawEZ6PpFzMz53OobanvB">灵魂共鸣 · 选择一项强化</h2>
+      <div id="talentChoices" class="talent-grid" data-page-node-id="w8N6IDrUx0nZlQ0QezjrZp"></div>
+    </section>
+
+    <section id="inventoryPanel" class="panel hidden inventory-panel" data-page-node-id="taIadZephpxifaWggA02IB">
+      <div class="panel-title-row" data-page-node-id="5qRon5DPnmIDuvvjWMople"><h2 data-page-node-id="5M9O4HZAb9pU1LCGxu9bqn">背包</h2><div class="panel-actions" data-page-node-id="R9ihgGUSOHppeP8rvUiwYK"><button id="inventoryStatsBtn" data-page-node-id="KlGzwn6P3fo44MN82V7nqN">人物属性 [C]</button><button class="ghost" id="closeInventory" data-page-node-id="HhHZWvAkbGYKH464py3aSl">关闭</button></div></div>
+      <div class="inventory-layout" data-page-node-id="sD89tvuIonQcyMcnw37Kru"><div data-page-node-id="H2rLvSGDGGhl99MbuWKP62"><h3 data-page-node-id="S5zHGzxYQht0uRcPnIUmZ5">已装备</h3><div id="equippedList" data-page-node-id="t4YetuUxP5eoB9B0mKPnmK"></div></div><div data-page-node-id="MCmd9kb0z8BmFqRRf8pmr4"><h3 data-page-node-id="DiqDQXe6wPdVSlzCR6DR8s">背包物品</h3><div id="inventoryList" data-page-node-id="PPFi9yLiypNFZub18vPy3Z"></div></div></div>
+    </section>
+
+
+    <section id="statsPanel" class="panel hidden stats-panel" data-page-node-id="eE3ampM8uXCDCVcauOVTts">
+      <div class="panel-title-row" data-page-node-id="vsvqEkfNPk9sVFOzMId0LC"><h2 data-page-node-id="aSEGmnj5wcnNhBZnpTSoLr">人物属性</h2><button class="ghost" id="closeStats" data-page-node-id="vW13dJhpNN29vqxmEydIP3">关闭</button></div>
+      <div id="statsHeader" class="stats-header" data-page-node-id="WVFK1jYnxJHvxq9yZAuskW"></div>
+      <div id="statsGrid" class="stats-grid" data-page-node-id="Ah6kmxYRB3v5d21XoUxLze"></div>
+      <div class="stats-footnote" data-page-node-id="BS2GcEIwyh5aHlf8nFwkhB">数值已包含永久强化、天赋与当前装备；海克斯增益不并入基础面板，在战斗结算时独立生效。</div>
+    </section>
+
+    <section id="shopPanel" class="panel hidden modal-panel" data-page-node-id="qtqCU6BbemHiWHm5wTnJv4">
+      <div class="panel-title-row" data-page-node-id="ydkgSPOtPNYrCweJE81yci"><h2 data-page-node-id="gJvRIP981jXQBhbSK3uq7C">流浪商人</h2><button class="ghost" id="closeShop" data-page-node-id="numEtc1efdilVHlilncRuv">关闭</button></div>
+      <div id="shopGold" class="currency-line" data-page-node-id="rKz2IkyrboiQvJvhg1ZyV4"></div>
+      <div id="shopItems" class="shop-list" data-page-node-id="xwAxiWBlJHLvzB0JMC1fY1"></div>
+    </section>
+
+    <section id="hexPanel" class="panel hidden hex-panel">
+      <div class="hex-head">
+        <h2>裂境馈赠</h2>
+        <div id="hexSub" class="hex-sub"></div>
+      </div>
+      <div id="hexChoices" class="hex-grid"></div>
+      <div class="hex-actions"><button id="hexSkip" class="ghost">跳过（+40 金币）</button></div>
+    </section>
+
+    <section id="pausePanel" class="panel hidden modal-panel" data-page-node-id="xRNbWsmzUWKhvWGDsR07Mn">
+      <h2 data-page-node-id="cto5IKcK1hMIcfVf0KG0BL">游戏暂停</h2><button id="resumeBtn" class="primary" data-page-node-id="h3L9OLJLno73E8EFygNsc2">继续</button><button id="quitBtn" data-page-node-id="qfuHiDEgsRgIIqGAIftrHJ">返回主菜单</button>
+    </section>
+
+    <section id="resultPanel" class="panel hidden modal-panel" data-page-node-id="Z8jjvf27XAaOleZsQGENl2">
+      <h2 id="resultTitle" data-page-node-id="Sk2DeWZ7Z2I1PmF0Usa5I8">战斗结束</h2>
+      <div id="resultStats" class="result-stats" data-page-node-id="kFDUC1YMlCfCB0kRHX8bux"></div>
+      <button id="resultMenuBtn" class="primary" data-page-node-id="itkDJDb5pUhK1q9VwoY4QB">返回主菜单</button>
+    </section>
+
+    <section id="achPanel" class="panel hidden wide-panel" data-page-node-id="GqopL45N3lKkuP5V8dWFGl">
+      <div class="panel-title-row" data-page-node-id="31BUPN686QZrDHz79Opewt"><h2 data-page-node-id="9H7rx7veqsGurLY30u8SRf">成就</h2><button class="ghost" data-close="achPanel" data-page-node-id="wSgwVBoTL0slNt8o3NPDOS">返回</button></div>
+      <div id="achCount" class="currency-line" data-page-node-id="T3VZOehhyWWglzm30O1ipq"></div>
+      <div id="achGrid" class="ach-grid" data-page-node-id="gJtkvSmLlxyymtur3crIqx"></div>
+      <div class="camp-note" data-page-node-id="SGXFPgKzCnT2HuUZ33Y8Aw">成就会随冒险进度自动解锁并保存。连续击杀、首领讨伐、宝箱怪制服都会被记录。</div>
+    </section>
+
+    <aside id="debugPanel" class="debug hidden" data-page-node-id="S0tpJu4tl9ufLSOdjGfXDb">
+      <h3 data-page-node-id="Pg1f51YjnaQhXuMmNGiTrG">开发调试</h3>
+      <label data-page-node-id="ffnInWHwOlMr8eZUXoRefi">跳转关卡 <input id="debugWave" type="number" min="1" max="100" value="1" data-page-node-id="BouRlYUuD74mvyUHJzvkuU"></label>
+      <button id="debugJump" data-page-node-id="zwyt7a47DqDtKGDdo2t82g">跳转</button>
+      <button id="debugHeal" data-page-node-id="4Eqduw79JN6Y0SJu5hpunD">回满血蓝</button>
+      <button id="debugGold" data-page-node-id="4hyuLj7rr8AjdMbl10ggze">+1000金币</button>
+      <button id="debugDamage" data-page-node-id="PPUg7oyu2nQMSn8t5qpcLb">攻击×2</button>
+      <button id="debugKill" data-page-node-id="S1F2dr89gPMjtUwAtTe78f">清屏</button>
+    </aside>
+
+    <div id="toast" data-page-node-id="AuPWVSkiySv4GkONR2UjUV"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
